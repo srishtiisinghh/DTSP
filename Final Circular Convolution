@@ -1,0 +1,22 @@
+clc
+clear all
+x1 = [1 2];
+x2 = [3 1 6 5 6];
+N1 = length(x1);
+N2 = length(x2);
+if N1 < N2
+    x1 = [x1 zeros(1,N2-N1)];
+else
+    x2 = [x2 zeros(1,N1-N2)];
+end
+N1 = length(x1);
+N2 = length(x2);
+% Paste C.M code here
+b = x1;
+c = x1';
+for n = 1:1:N1-1
+    b = [b(N1) b(1:N1-1)];
+    c = [c b'];
+endfor
+c
+final = c * x2'
