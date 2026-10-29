@@ -1,0 +1,19 @@
+clc
+clear
+x1 = [1 2 3 4];
+x2 = [5 6];
+N1 = length(x1);
+N2 = length(x2);
+N3 = N1 + N2 - 1;
+x1 = [x1 zeros(1,N3-N1)];
+x2 = [x2 zeros(1,N3-N2)];
+% Generate C.M of x1
+b = x1;
+c = x1';
+for n = 1:1:N3-1
+    b = [b(N3) b(1:N3-1)];
+    c = [c b'];
+endfor
+c
+final = c * x2'
+final
