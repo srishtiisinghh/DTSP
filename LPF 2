@@ -1,0 +1,18 @@
+clear; 
+fs=3000; 
+M=701; 
+shift=(M-1) /2; 
+for n=0:1:M-1 
+hd(n+1) =sin (0.8*pi" (n-shift) )/(pi" (n-shift) ) ; 
+endfor 
+hd(shift+1) =0.8; 
+figure(1) , plot (hd) 
+####################*###### 
+for n=0:1:M-1 
+w(n+1) =0.5-(0.5* cos ( (2*pi*n)/(M-1))); 
+endfor 
+figure(2), plot (w) 
+#########t#####t##t# 
+h=hd.*wW; 
+figure(3), plot (h) 
+freqz (h, 1, M) 
