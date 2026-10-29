@@ -1,0 +1,8 @@
+clc
+clear all
+R = 1000000;
+C = 0.1 * 10^-6;
+for n = 1:1:53
+    V(n) = 1 - exp(-n/(R*C));
+end
+plot(V)
