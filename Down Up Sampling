@@ -1,0 +1,18 @@
+clc
+clear all
+% Down Sampling
+x = [1,2,3,4,5,6,7,8,9,8,7,6,5,4,3,2,1];
+N = length(x);
+for n = 1:1:N/2
+    y(n) = x(2*n);
+end
+y
+subplot(3,1,1), stem(x)
+subplot(3,1,2), stem(y)
+% Up Sampling
+M = length(y);
+for n = 2:2:2*M
+    z(n) = y(n/2);
+end
+z
+subplot(3,1,3), stem(z)
