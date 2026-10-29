@@ -1,0 +1,21 @@
+clc
+clear all
+Fs = 40;  % 40 Hz
+F1 = 5;
+F2 = 10;
+F3 = 15;
+F4 = 50;
+F5 = 95;
+A = 12;
+for n = 1:1:50
+    x1(n) = A*cos(2*pi*(F1/Fs)*n);
+    x2(n) = A*cos(2*pi*(F2/Fs)*n);
+    x3(n) = A*cos(2*pi*(F3/Fs)*n);
+    x4(n) = A*cos(2*pi*(F4/Fs)*n);
+    x5(n) = A*cos(2*pi*(F5/Fs)*n);
+end
+subplot(5,1,1), stem(x1), title('5 Hz')
+subplot(5,1,2), stem(x2), title('10 Hz')
+subplot(5,1,3), stem(x3), title('15 Hz')
+subplot(5,1,4), stem(x4), title('50 Hz')
+subplot(5,1,5), stem(x5), title('95 Hz')
