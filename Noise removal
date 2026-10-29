@@ -1,0 +1,30 @@
+clc 
+clear 
+|[x1, Fs]-audioread('barfi_3.wav'): 
+x=x1(: ,1) ; 
+figure (1) , plot (x) 
+###FFT 
+X-fft (x) ; 
+Xmag=abs (X) ; 
+figure (2), 
+atem (Xmag) 
+M=501; 
+shift= (M-1) /2 ; 
+for n=0:1:M-1 
+hd (n+1) -sin (0.775 #pi* (n-shift) ) / (pi* (n-shift) ) ; 
+end 
+hd (shift+1) =0.775; 
+for n=0:1 :M-1 
+w (n+1) =l; 
+end 
+h=hd. *w; 
+figure (3) plot (h) 
+freqz (h, 1 ,M, Fs) 
+###implementation 
+yconv (x,h) ; 
+#$$Rectangular Window 
+audiowrite('barfi_ 3_clean . wav' ,y, Fs) ; 
+###checking 
+Y=fft (y) : 
+Ymag-abs (Y) ; 
+figure (4) ,stem (Ymag)
