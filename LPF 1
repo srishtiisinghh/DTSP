@@ -1,0 +1,20 @@
+clc; 
+clear; 
+fs = 8000; 
+M = 7; 
+shift = (M-1)/2; 
+% Ideal LPF 
+for n = 0:1:M-1 
+hd(n+1) = sin(e.375*pi*(n-shift) )/ (pi* (n-shift)) ; 
+endfor 
+hd(shift+1) = 0.375; 
+figure (1), plot (hd) 
+% Rectangular Window 
+for n =0:1:M-1 
+w(n+1) = 1; 
+endfor 
+figure (2 ), plot(w) 
+% Final Filter Response 
+h= hd .* w; 
+figure(3 ), plot (h) 
+freqz(h, 1, M) 
