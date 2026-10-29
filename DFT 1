@@ -1,0 +1,13 @@
+clc
+clear
+x = [11 22 33 44 55 66 77 88 99 32 54 76 87 09 87 65 45 67 89]
+N=length(x);
+for n = 0:1:N-1
+for k = 0:1:N-1
+        w(n+1,k+1) = exp(-j*2*pi*n*k/N);
+end
+end
+w;
+X=w*x'
+Xmag=abs(X);
+stem(Xmag), xlabel('k'), ylabel('|X(K)|'), title('DFT MAG SPECTRUM')
