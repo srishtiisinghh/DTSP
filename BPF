@@ -1,0 +1,21 @@
+clc 
+clear 
+fs = 21000; 
+M= 501; 
+shift = (M-1)/2; 
+% Ideal BPF 
+for n = 0:1:M-1 
+hd(n+1) = sin(0.85*pi*(n-shift) ) / (pi*(n-shift) ) 
+sin(0.67"pi" (n-shift) ) /(pi"(n-shift) ); 
+endfor 
+hd(shift+1) = 0.18; 
+figure (1), plot(hd) 
+% Hamming Window 
+for n = 0:1:M-1 
+w(n+1) = 0.54 - 0,46*cos ( (2*pi"n)/(M-1)); 
+endfor 
+figure (2), plot(w) 
+% Final Filter Response 
+h= hd .* W; 
+figure(3), plot(h) 
+freqz (h, 1, M, fs)
